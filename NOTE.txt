@@ -1,0 +1,10 @@
+When Mario env (nes-py) is installed, run the full pipeline from the SAME place you installed it:
+
+  Open "x64 Native Tools Command Prompt for VS 2026" from Start Menu, then:
+  cd /d "c:\Users\admin\latent space"
+  run_all_auto.bat
+
+This runs: collect (quick) -> train -> evaluate -> physics_blending -> play_in_latent.
+Output: data\ saved_models\ results\
+
+If you run from Cursor or a normal terminal, Python may be different and nes-py can fail (WinError 193). Use the Developer Command Prompt above.

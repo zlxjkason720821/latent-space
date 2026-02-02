@@ -1,0 +1,22 @@
+If nes-py fails with "Microsoft Visual C++ 14.0 or greater is required", you must install FROM the Developer Command Prompt (do NOT double-click the batch file).
+
+Step 1: Make sure "x64 Native Tools" exists
+  - If you do NOT see "x64 Native Tools Command Prompt for VS 2026" (or 2022) when you search "native tools":
+    1. Open "Visual Studio Installer" (search in Start Menu).
+    2. Click "Modify" on "Visual Studio Build Tools 2026".
+    3. Check the workload "Desktop development with C++" (or "使用 C++ 的桌面开发").
+    4. Click Install/Modify and wait. After that, "x64 Native Tools Command Prompt for VS 2026" will appear in Start Menu.
+  - You can also look under Start Menu -> "Visual Studio 2026" or "Visual Studio Build Tools 2026" for the Native Tools shortcut.
+
+Step 2: Open the Developer Command Prompt
+  - Press Win, search:  Native Tools  (or  x64 native tools)
+  - Open:  "x64 Native Tools Command Prompt for VS 2026"  (or 2022 if you have that)
+  - If you use 32-bit Python, open "x86 Native Tools Command Prompt for VS 2026" instead
+
+Step 3: In that black window (and only in that window), run:
+  cd /d "c:\Users\admin\latent space"
+  install_in_dev_prompt.bat
+
+Step 4: Wait for "Successfully installed ..." then close the window.
+
+After that, run the project from any terminal:  py scripts/collect_data.py
