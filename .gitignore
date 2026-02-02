@@ -2,14 +2,6 @@ __pycache__/
 *.pyc
 *.pyo
 .Python
-*.npz
-data/*.npz
-saved_models/*.pt
-saved_models/*.png
-results/*.png
-results/play_frames/
-results/play_frames_*/
-results/*.txt
 *.exe
 .env
 .venv/

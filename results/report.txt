@@ -1,0 +1,4 @@
+1 latent 32 actions 4
+2 track dim 10
+3 height dim 1 r2 1.000
+4 done

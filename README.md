@@ -15,6 +15,7 @@ output in data/
 
 ## 3 Train
 py scripts/train.py
+(Model uses residual dynamics and grad clipping; if you had old dynamics.pt, retrain after updating.)
 
 ## 4 Evaluate
 py scripts/evaluate.py

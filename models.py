@@ -37,10 +37,11 @@ class StateAutoencoder(nn.Module):
 
 
 class LatentDynamicsModel(nn.Module):
-    def __init__(self, latent_dim=32, action_dim=4, hidden_dim=64):
+    def __init__(self, latent_dim=32, action_dim=4, hidden_dim=64, residual=True):
         super().__init__()
         self.latent_dim = latent_dim
         self.action_dim = action_dim
+        self.residual = residual
         self.net = nn.Sequential(
             nn.Linear(latent_dim + action_dim, hidden_dim),
             nn.ReLU(),
@@ -52,7 +53,8 @@ class LatentDynamicsModel(nn.Module):
     def forward(self, z, action):
         action_onehot = F.one_hot(action, self.action_dim).float()
         x = torch.cat([z, action_onehot], dim=-1)
-        return self.net(x)
+        delta = self.net(x)
+        return (z + delta) if self.residual else delta
 
     def rollout(self, z0, actions):
         traj = [z0.unsqueeze(0)]
@@ -71,6 +73,11 @@ def ae_loss(recon, original):
 def dynamics_loss(z_pred, z_true):
     return F.mse_loss(z_pred, z_true)
 
+
+# Possible further improvements (would need retrain):
+# - AE: deeper/wider, BatchNorm, Dropout(0.05), latent_dim 64
+# - Dynamics: deeper net, multi-step rollout loss, LayerNorm
+# - Training: lr scheduler, separate lr for AE vs dyn
 
 if __name__ == '__main__':
     batch, state_dim, latent_dim = 16, 169, 32
