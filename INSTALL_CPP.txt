@@ -4,7 +4,7 @@ Step 1: Make sure "x64 Native Tools" exists
   - If you do NOT see "x64 Native Tools Command Prompt for VS 2026" (or 2022) when you search "native tools":
     1. Open "Visual Studio Installer" (search in Start Menu).
     2. Click "Modify" on "Visual Studio Build Tools 2026".
-    3. Check the workload "Desktop development with C++" (or "使用 C++ 的桌面开发").
+    3. Check the workload "Desktop development with C++".
     4. Click Install/Modify and wait. After that, "x64 Native Tools Command Prompt for VS 2026" will appear in Start Menu.
   - You can also look under Start Menu -> "Visual Studio 2026" or "Visual Studio Build Tools 2026" for the Native Tools shortcut.
 
